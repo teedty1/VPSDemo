@@ -23,7 +23,7 @@
       </div>
       <div class="col-md-6">
         <button id="zoidPopup" type="button" class="btn btn-info">Zoid Popup</button>
-        <div class="well">This button will open VPS Checkout (via Cloudfront) using Zoid.  Note the URL will still show the same as the original website</div>
+        <div class="well">This button will open VPS Checkout (via Cloudfront) using Zoid.  Note the URL in the popup is the same as the origin website</div>
       </div>      
     </div>
   </div>
@@ -32,7 +32,8 @@
   <script type="text/JavaScript">
     $(document).ready(function() {
         $("#jsPopup").click(function() {
-          window.open("/1903181417843D13E354319031814178VpsCheckout?token=1abc&callbackUrl=https://devel.vpsenv.com/Vps.CheckoutAPI.Version2/Payment/CurrentSession/1903181417843D13E354319031814178","VPS","height=500,width=800");
+          var url = "/1903181417843D13E354319031814178VpsCheckout?token=1abc&callbackUrl=https://devel.vpsenv.com/Vps.CheckoutAPI.Version2/Payment/CurrentSession/1903181417843D13E354319031814178";
+          window.open(url,"VPS","height=500,width=800,toolbar=0,location=0,directories=0,status=0,menubar=0");
         });
 
         $("#zoidPopup").click(function() {
