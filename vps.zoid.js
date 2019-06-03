@@ -13,7 +13,7 @@ window.VPSComponent = zoid.create({
     },
 
     dimensions: {
-        width: '700px',
-        height: '550px'
+        width: '900px',
+        height: '700px'
     }
 });
