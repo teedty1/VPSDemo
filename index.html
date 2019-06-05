@@ -32,8 +32,15 @@
         <button id="bootstrapModalPopup" type="button" class="btn btn-default" data-toggle="modal" data-target="#modal">Bootstrap Popup</button>
         <div class="well">This button will open VPS Checkout (via Cloudfront) using Bootstrap Modal.</div>
       </div>
-    </div>    
-  </div>
+    </div>
+    <h3>Zoid Demo</h3>
+    <div class="row">
+      <div class="col-md-4">
+        <button id="zoidPopupXProps" type="button" class="btn btn-success">Zoid XProps Popup</button>
+        <div class="well">This button will open a window with Zoid and pass a parameter</div>
+      </div>
+    </div>
+  </div>  
   <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
@@ -50,8 +57,9 @@
       </div>
     </div>   
   </div>
-  <script src="/krakenJS.zoid.js"></script>
-  <script src="/vps.zoid.js"></script>
+  <script src="krakenJS.zoid.js"></script>
+  <script src="vps.zoid.js"></script>
+  <script src="xprops.zoid.js"></script>
   <script type="text/JavaScript">
     $(document).ready(function() {
         $("#jsPopup").click(function() {
@@ -60,8 +68,19 @@
         });
             
         $("#zoidPopup").click(function() {
-          VPSComponent.render({});
-        })           
+          VPSComponent({}).render('body', zoid.CONTEXT.POPUP);
+        })      
+
+        $("#zoidPopupXProps").click(function() {
+          var date = new Date();
+          XPropsComponent({
+            startTime: date.toString(),
+            inMessage: "HI!",
+            onComplete: function(message) {
+              alert("Hi from xprops onComplete\n" + message);              
+            }
+          }).render('body', zoid.CONTEXT.POPUP);
+        })
     });
   </script>
 </body>

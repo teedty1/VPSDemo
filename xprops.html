@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zoid XProps Demo</title>
+  <script src="krakenJS.zoid.js"></script>
+  <script src="xprops.zoid.js"></script> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>  
+
+
+</head>
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <h2>Hi!  This page is a ZOID popup with xProps</h2>
+      <h5 id="lblStartTime"></h5>
+      <h5 id="lblMessage"></h5>      
+      <input type="text" id="inputCustomMessage" class="form-control" value="This is a test custom message.  Please edit me!">
+      <button id="btnOnComplete" type="button" class="btn btn-danger">Close Me</button>
+    </div>    
+  </div>  
+  <script type="text/JavaScript">
+    $(document).ready(function() {
+      $("#lblStartTime").text(window.xprops.startTime);
+      $("#lblMessage").text(window.xprops.inMessage);      
+      $("#btnOnComplete").click(function() {
+        window.xprops.onComplete($("#inputCustomMessage").val());
+        window.xchild.close();
+      })
+    });  
+  </script>
+</body>
+</html>
