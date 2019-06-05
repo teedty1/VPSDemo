@@ -15,8 +15,7 @@ window.XPropsComponent = zoid.create({
     dimensions: {
         width: '700px',
         height: '500px'
-    },
-
+    },   
     props: {
         startTime: {
             type: 'string',
